@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumud Zha's Irritating Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            color: #333;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #ffcc00;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .message {
+            font-size: 1.5em;
+            margin: 20px;
+            color: #ff5733;
+        }
+
+        #lumudImage {
+            width: 250px;
+            height: auto;
+            border-radius: 50%;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        button {
+            background-color: #ff5733;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            margin: 20px;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: #ff2a1c;
+            transition: background-color 0.3s ease;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        #popUpMessage {
+            color: #ff5733;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .flashing {
+            color: #ff5733;
+            font-size: 1.5em;
+            animation: flash 1s infinite;
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the site of lumud zha(chotti lulli wala)!</h1>
+    </header>
+
+    <main>
+        <img src="IMG-20241216-WA0006.jpg" alt="Lumud Zha" id="lumudImage">
+        <p class="message">size of lulli 😝</p>
+        <button id="annoyButton">Click here to check!</button>
+        <p id="popUpMessage"></p>
+        <p id="flashMessage" class="flashing">satisfied?</p>
+    </main>
+
+    <footer>
+        <p>wing commander of smvdu</p>
+    </footer>
+
+    <script>
+        const annoyButton = document.getElementById('annoyButton');
+        const popUpMessage = document.getElementById('popUpMessage');
+        const flashMessage = document.getElementById('flashMessage');
+        const lumudImage = document.getElementById('lumudImage');
+
+        annoyButton.addEventListener('click', function() {
+            // Change the message when clicked
+            popUpMessage.textContent = "size = 2 inch";
+            annoyButton.textContent = "Click again, if you want to increase size!";
+            
+            // Flash the annoying message
+            flashMessage.classList.add("flashing");
+            
+            // Make the button move around the screen randomly
+            moveButtonRandomly();
+
+            // Play an annoying sound
+            playAnnoyingSound();
+
+            // Change the image
+            lumudImage.src = "img";
+        });
+
+        function moveButtonRandomly() {
+            const button = annoyButton;
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+
+            // Get random positions within the window bounds
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+
+            // Move the button
+            button.style.position = 'absolute';
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+        }
+
+        function playAnnoyingSound() {
+            const audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            audio.play();
+        }
+    </script>
+</body>
+</html>
